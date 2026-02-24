@@ -198,7 +198,7 @@ margin-top:60px;
 </div>
 <div>
 <span class="price">₹29</span>
-<<a href="https://rzp.io/rzp/YojoVfi" class="btn" target="_blank">Buy Now</a>
+<button id="payBtn" class="btn">Buy Now</button>
 </div>
 </div>
 
@@ -209,7 +209,7 @@ margin-top:60px;
 </div>
 <div>
 <span class="price">₹29</span>
-<a href="#" class="buy">Buy Now</a>
+
 </div>
 </div>
 
@@ -218,6 +218,23 @@ margin-top:60px;
 <footer>
 © 2026 Sochdesk. All Rights Reserved.
 </footer>
-
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+document.getElementById('payBtn').onclick = function(e){
+    var options = {
+        "key": "rzp_live_SJuhDCZQdYyTtq",
+        "amount": 2900,
+        "currency": "INR",
+        "name": "Sochdesk",
+        "description": "Premium Business Guide",
+        "handler": function (){
+            window.location.href = "https://drive.google.com/uc?export=download&id=1R3pH154pR_jC15jvMVsN4_m4Jusi-57d";
+        }
+    };
+    var rzp = new Razorpay(options);
+    rzp.open();
+    e.preventDefault();
+}
+</script>
 </body>
 </html>
